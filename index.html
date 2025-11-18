@@ -1,0 +1,264 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Viète — Supplementum Geometriae (Modern, Interactive)</title>
+  <style>
+    /* Light Renaissance Touch stylesheet — minimal, tasteful */
+    :root{
+      --paper: #fbf7ef; /* soft parchment */
+      --ink: #1b1b1b;
+      --muted: #56524a;
+      --accent: #6a2e2e; /* deep burgundy accent */
+      --max-width: 980px;
+      --content-gap: 1.25rem;
+      --radius: 14px;
+      --serif: "Garamond", "Palatino Linotype", "Times New Roman", Times, serif;
+      --sans: Inter, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+    }
+
+    html,body{height:100%;}
+    body{
+      margin:0;
+      font-family:var(--sans);
+      background:linear-gradient(180deg, var(--paper), #fff 60%);
+      color:var(--ink);
+      -webkit-font-smoothing:antialiased;
+      -moz-osx-font-smoothing:grayscale;
+      padding:2rem 1rem;
+      display:flex;
+      justify-content:center;
+    }
+
+    .wrap{
+      width:100%;
+      max-width:var(--max-width);
+      background:rgba(255,255,255,0.82);
+      border-radius:var(--radius);
+      box-shadow:0 8px 30px rgba(20,20,20,0.08);
+      padding:2rem;
+      border:1px solid rgba(20,20,20,0.04);
+    }
+
+    header{
+      display:flex;
+      gap:1rem;
+      align-items:center;
+      margin-bottom:1.25rem;
+    }
+    .brand{
+      display:flex;flex-direction:column;gap:.125rem;
+    }
+    h1{
+      font-family:var(--serif);
+      margin:0;
+      font-size:1.45rem;
+      letter-spacing:0.01em;
+      color:var(--accent);
+    }
+    .subtitle{
+      margin:0;font-size:.88rem;color:var(--muted);
+      font-style:italic;
+    }
+
+    nav{
+      margin-top:.75rem;
+      display:flex;gap:.5rem;flex-wrap:wrap;
+    }
+    a.nav-link{font-size:.88rem;padding:.4rem .7rem;border-radius:8px;text-decoration:none;color:var(--accent);border:1px dashed rgba(106,46,46,0.12)}
+
+    main{display:grid;grid-template-columns: 1fr 320px;gap:1.25rem;align-items:start}
+
+    /* content column */
+    .content{padding-right:1rem}
+    article{background:transparent}
+
+    .intro{
+      background:linear-gradient(180deg, transparent 0%, rgba(106,46,46,0.02) 100%);
+      padding:1rem;border-radius:12px;margin-bottom:1rem;border:1px solid rgba(106,46,46,0.04);
+      position:relative;
+    }
+    .dropcap{
+      float:left;font-family:var(--serif);font-size:3.2rem;line-height:1;margin-right:.6rem;color:var(--accent);
+      font-weight:700;margin-top:.1rem;
+    }
+    .lead{font-size:1rem;color:var(--muted);line-height:1.5}
+
+    section{margin-bottom:1rem}
+    h2{font-family:var(--serif);color:var(--accent);margin:0 0 .5rem 0}
+    p{margin:0 0 .7rem 0;line-height:1.6;color:var(--ink)}
+
+    /* sidebar */
+    aside{
+      background:rgba(255,255,255,0.9);border-radius:12px;padding:1rem;border:1px solid rgba(20,20,20,0.03);
+      font-size:.92rem;color:var(--muted)
+    }
+    .task{display:flex;gap:.5rem;align-items:flex-start;margin-bottom:.6rem}
+    .task .dot{width:10px;height:10px;border-radius:50%;background:var(--accent);margin-top:.35rem}
+
+    /* visual area */
+    .visual-card{border-radius:12px;padding:1rem;border:1px solid rgba(20,20,20,0.04);background:linear-gradient(180deg,rgba(255,255,255,0.6),transparent)}
+    svg{width:100%;height:300px;display:block}
+
+    footer{margin-top:1rem;padding-top:1rem;border-top:1px dashed rgba(20,20,20,0.04);color:var(--muted);font-size:.85rem}
+
+    /* responsive */
+    @media (max-width:960px){main{grid-template-columns:1fr}aside{order:2}}
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <header>
+      <div class="brand">
+        <h1>Supplementum Geometriae — Modern Interactive Edition</h1>
+        <div class="subtitle">François Viète (1593) — reimagined with interactive geometry</div>
+      </div>
+    </header>
+
+    <nav>
+      <a class="nav-link" href="#intro">Introduction</a>
+      <a class="nav-link" href="#visuals">Visual Demos</a>
+      <a class="nav-link" href="#algebra">Algebraic Lens</a>
+      <a class="nav-link" href="#notes">Historical Notes</a>
+      <a class="nav-link" href="#tasks">Bite-size Tasks</a>
+    </nav>
+
+    <main>
+      <div class="content">
+        <article id="intro" class="intro">
+          <span class="dropcap">V</span>
+          <div class="lead">François Viète’s <em>Supplementum Geometriae</em> occupies a unique place in the late Renaissance: geometric construction is being translated into a symbolic, almost algebraic language. This edition is intended as a digital companion — short reads, interactive diagrams, and modern commentary — that keeps the spirit of Viète while making his ideas accessible using contemporary tools.</div>
+        </article>
+
+        <section id="visuals" class="visual-card">
+          <h2>Visual Demos — what to expect</h2>
+          <p>This edition emphasizes diagram-first explanations. Each key construction from Viète will be shown as:</p>
+          <ol>
+            <li>A short historical statement (paraphrased)</li>
+            <li>An interactive SVG demo where you can drag points and see relationships</li>
+            <li>A modern algebraic reinterpretation (concise)</li>
+          </ol>
+          <p>Below is a starter placeholder SVG designed to be replaced by specific constructions. It already includes a small interactive helper (drag the small circle).</p>
+
+          <!-- Starter interactive svg -->
+          <svg id="demoSVG" viewBox="0 0 800 360" xmlns="http://www.w3.org/2000/svg" aria-labelledby="demoTitle">
+            <title id="demoTitle">Interactive geometric starter — draggable point</title>
+            <rect x="10" y="10" width="780" height="340" rx="8" ry="8" fill="rgba(250,247,239,0.6)" stroke="rgba(106,46,46,0.06)"/>
+            <!-- fixed baseline -->
+            <line x1="80" y1="260" x2="720" y2="260" stroke="rgba(0,0,0,0.08)" stroke-width="2" />
+            <!-- points and labels -->
+            <circle id="A" cx="160" cy="200" r="6" fill="#1b1b1b" />
+            <text x="150" y="190" font-family="var(--sans)" font-size="12">A</text>
+
+            <circle id="B" cx="560" cy="200" r="6" fill="#1b1b1b" />
+            <text x="570" y="190" font-family="var(--sans)" font-size="12">B</text>
+
+            <!-- draggable helper point P -->
+            <circle id="P" cx="360" cy="160" r="9" fill="#6a2e2e" cursor="move" />
+            <text id="Pt" x="370" y="155" font-family="var(--sans)" font-size="12" fill="#6a2e2e">P</text>
+
+            <!-- construction line -->
+            <line id="AP" x1="160" y1="200" x2="360" y2="160" stroke="#6a2e2e" stroke-width="1.6" stroke-opacity="0.9" />
+            <line id="PB" x1="360" y1="160" x2="560" y2="200" stroke="#6a2e2e" stroke-width="1.6" stroke-opacity="0.9" />
+
+            <!-- measure text -->
+            <text id="lenText" x="320" y="80" font-family="var(--sans)" font-size="13" fill="#333">AP: -- &nbsp; PB: --</text>
+          </svg>
+
+          <script>
+            (function(){
+              const svg = document.getElementById('demoSVG');
+              const P = document.getElementById('P');
+              const Pt = document.getElementById('Pt');
+              const AP = document.getElementById('AP');
+              const PB = document.getElementById('PB');
+              const lenText = document.getElementById('lenText');
+              const A = {x:160,y:200};
+              const B = {x:560,y:200};
+
+              let dragging=false;
+
+              function update(x,y){
+                P.setAttribute('cx', x);
+                P.setAttribute('cy', y);
+                Pt.setAttribute('x', x+10);
+                Pt.setAttribute('y', y-5);
+                AP.setAttribute('x2', x);
+                AP.setAttribute('y2', y);
+                PB.setAttribute('x1', x);
+                PB.setAttribute('y1', y);
+                const ap = Math.hypot(x-A.x, y-A.y).toFixed(2);
+                const pb = Math.hypot(B.x-x, B.y-y).toFixed(2);
+                lenText.textContent = `AP: ${ap}  ·  PB: ${pb}`;
+              }
+
+              svg.addEventListener('pointerdown', (e)=>{
+                const pt = svg.createSVGPoint(); pt.x = e.clientX; pt.y = e.clientY;
+                const ctm = svg.getScreenCTM().inverse();
+                const cursorPt = pt.matrixTransform(ctm);
+                // start dragging if pointer is near P
+                const px = parseFloat(P.getAttribute('cx'));
+                const py = parseFloat(P.getAttribute('cy'));
+                if(Math.hypot(cursorPt.x-px, cursorPt.y-py) < 20){
+                  dragging=true; svg.setPointerCapture(e.pointerId);
+                }
+              });
+
+              svg.addEventListener('pointermove', (e)=>{
+                if(!dragging) return;
+                const pt = svg.createSVGPoint(); pt.x = e.clientX; pt.y = e.clientY;
+                const ctm = svg.getScreenCTM().inverse();
+                const cursorPt = pt.matrixTransform(ctm);
+                // clamp to drawing rect
+                const x = Math.max(90, Math.min(710, cursorPt.x));
+                const y = Math.max(40, Math.min(300, cursorPt.y));
+                update(x,y);
+              });
+
+              svg.addEventListener('pointerup', (e)=>{ dragging=false; try{ svg.releasePointerCapture(e.pointerId);}catch(e){} });
+
+              // initialize
+              update(360,160);
+            })();
+          </script>
+        </section>
+
+        <section id="algebra">
+          <h2>Algebraic lens (short)</h2>
+          <p>After showing the geometry visually, we'll provide a concise algebraic reinterpretation. For many of Viète's constructions the modern translation is straightforward: represent segments as positive real numbers, operations of joining/partitioning as addition/subtraction, and classical mean-proportional constructions as equations involving square roots. Later we can add companion-matrix visualizations for selected constructions.</p>
+        </section>
+
+        <section id="notes">
+          <h2>Historical notes</h2>
+          <p>Each construction will include a short note about Viète's original Latin phrasing and a modern paraphrase. We will avoid long verbatim Latin passages in the main flow; instead a toggle will reveal the original when the reader wants it.</p>
+        </section>
+
+        <section id="tasks">
+          <h2>Bite-size tasks — what we'll build first</h2>
+          <ol>
+            <li><strong>Segment algebra demo:</strong> interactive segment multiplication / composition (starter)</li>
+            <li><strong>Mean proportional construction:</strong> classic two-mean construction with geometric square-root visualization</li>
+            <li><strong>Quadratic construction:</strong> show Viète's approach to solving a quadratic via geometric steps</li>
+            <li><strong>Polygon proportions:</strong> construct regular n-gon relationships and show algebraic perimeter/area expressions</li>
+            <li><strong>Appendix:</strong> side-by-side modern translation / original text</li>
+          </ol>
+          <p>We'll implement these incrementally — each as a small, self-contained interactive demo + explanation. The next message I will implement the first demo ("Segment algebra demo") as a working interactive widget — unless you prefer a different starting choice from the list above.</p>
+        </section>
+
+        <footer>Credits: design inspired by late Renaissance printing aesthetics; modernized by this digital edition.</footer>
+      </div>
+
+      <aside>
+        <h3 style="font-family:var(--serif);color:var(--accent);margin-top:0">Project roadmap</h3>
+        <div class="task"><div class="dot"></div><div><strong>Draft HTML/CSS</strong><div style="color:var(--muted)">Complete (starter file)</div></div></div>
+        <div class="task"><div class="dot"></div><div><strong>Interactive Demo 1</strong><div style="color:var(--muted)">Segment algebra (next)</div></div></div>
+        <div class="task"><div class="dot"></div><div><strong>Interactive Demo 2</strong><div style="color:var(--muted)">Mean proportional</div></div></div>
+        <div class="task"><div class="dot"></div><div><strong>Translations</strong><div style="color:var(--muted)">Short/expandable</div></div></div>
+        <hr style="border:none;border-top:1px dashed rgba(20,20,20,0.04);margin:.6rem 0" />
+        <div style="font-size:.85rem;color:var(--muted)">How you'd like to proceed: I will now implement the first interactive demo (Segment algebra). If you'd rather start with another construction, say which one and I'll implement it next.</div>
+      </aside>
+    </main>
+  </div>
+</body>
+</html>
